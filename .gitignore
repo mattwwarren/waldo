@@ -4,21 +4,30 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
-# Ignore bundler config
+# These exclusions were taken from https://github.com/github/gitignore/blob/master/Rails.gitignore
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
 /.bundle
-
-# Ignore the default SQLite database.
+/vendor/bundle
+/log/*
+/tmp/*
 /db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
 
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+# Ignore eclipse files
+.project
+.buildpath
 
-# Ignore database configs
-config/database.yaml
-
-# Ignore generated rdoc
+# Ignore Rails-generated RDOC
 README.rdoc
 
-# Ignore eclipse settings
-.project
+# Ignore local database files for security reasons
+/config/*.yml
