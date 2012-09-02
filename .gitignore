@@ -15,7 +15,7 @@
 /tmp
 
 # Ignore database configs
-/config/database.yaml
+config/database.yaml
 
 # Ignore generated rdoc
 README.rdoc
