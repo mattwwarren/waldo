@@ -1,0 +1,20 @@
+<h1>Where is everyone?</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Status</th>
+  </tr>
+  
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.status %></td>
+      <td><%= link_to "Delete", user, :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>  
+
+<% if users.empty? %>
+   <em>Everyone is here!</em>
+<% end %>
