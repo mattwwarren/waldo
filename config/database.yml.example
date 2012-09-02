@@ -3,6 +3,15 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
+#
+# MySQL with Rails 3.x
+#   gem install activerecord-mysql2-adapter
+#
+#   Ensure the MySQL gem is defined in your Gemfile
+#   gem 'activerecord-mysql2-adapter'
+#
+#   Remember to change the adapter lines to 'mysql2'
+#   to allow yourself to use the mysql connections
 development:
   adapter: sqlite3
   database: db/development.sqlite3
