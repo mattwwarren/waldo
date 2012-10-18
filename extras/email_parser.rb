@@ -5,7 +5,7 @@ require 'active_record'
 ActiveRecord::Base.establish_connection(  
 :adapter => "sqlite3",
 :database => "db/waldo_dev",
-:encoding => "utf8",
+:encoding => "utf8"
 )
 
 class Users < ActiveRecord::Base

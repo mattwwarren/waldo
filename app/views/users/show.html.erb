@@ -19,6 +19,16 @@
   <b>Notes:</b>
   <%= @user.notes %>
 </p>
+  
+<p>
+  <b>Created at:</b>
+  <%= @user.created_at %>
+</p>
+  
+<p>
+  <b>Updated at:</b>
+  <%= @user.updated_at %>
+</p>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
