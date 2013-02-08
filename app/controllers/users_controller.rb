@@ -40,10 +40,11 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    email_exists = User.where(:email => params[:user][:email]).exists?
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if @user.save
+      if email_exists || @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
