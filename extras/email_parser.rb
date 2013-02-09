@@ -79,7 +79,7 @@ subjects = subject.scan(/(today|tomorrow|next \w+|this \w+|mon\w*|tue\w*|wed\w*|
 if subjects.size > 0
   subjects.each do |dates|
     dates.each do |date|
-      active_date = Chronic.parse(date)
+      active_date = Chronic.parse(date).strftime("%Y-%m-%d").to_date
       Users.create(:name => name, :email => emailaddr, :status => subject, :notes => notes, :active_date => active_date)
     end
   end
