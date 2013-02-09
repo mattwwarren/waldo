@@ -44,7 +44,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if email_exists || @user.save
+      if email_exists
+        update_duplicate(params[:user][:email], params[:user][:status], params[:user][:notes])
+      elsif @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -81,4 +83,20 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def update_duplicate(email, status, notes)
+    @user = User.find_by_email(email)
+    @user.status = status
+    @user.notes = notes
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 end
