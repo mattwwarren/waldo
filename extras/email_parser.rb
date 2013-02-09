@@ -5,7 +5,7 @@ require 'active_record'
 require 'chronic'
 ActiveRecord::Base.establish_connection(  
 :adapter => "sqlite3",
-:database => "db/waldo_dev",
+:database => "db/development.sqlite3",
 :encoding => "utf8"
 )
 
@@ -28,7 +28,7 @@ STDIN.each do |line|
   elsif line.match(/From: (.*)/)
     from=$1
   elsif text_next == true
-    messagetext.push(line.strip!)
+    messagetext.push(line.sub(/=20/, '').strip!)
   elsif line.match(/^\n/)
     text_next = true
   end
@@ -36,8 +36,25 @@ end
 
 if subject.match(/(today|tomorrow|next \w+|this \w+)/i)
   active_date = Chronic.parse($1)
+elsif subject.match(/(mon\w*|tue\w*|wed\w*|thur\w*|fri\w*)/i)
+  active_date = Chronic.parse($1)
 else
   active_date = Date.today
+end
+
+messagetext.delete_if {|s| s.empty?}
+
+if messagetext[0] =~ /--/
+  messagetext.reverse!
+  messagetext.pop
+  messagetext.reverse!
+end
+
+messagetext.delete_if {|s| s.include?("Content-")}
+
+if messagetext.index {|s| s =~ /--\w*/}
+  eom = messagetext.index {|s| s =~ /--\w*/} - 1
+  messagetext = messagetext.slice(0..eom)
 end
 
 name = from.partition("<")[0]
