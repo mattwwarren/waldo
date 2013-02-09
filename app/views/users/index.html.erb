@@ -6,7 +6,6 @@
     <th>Email</th>
     <th>Status</th>
     <th>Notes</th>
-    <th>Active</th>
     <th>Created</th>
     <th>Updated</th>
     <th></th>
@@ -15,18 +14,19 @@
   </tr>
 
 <% @users.each do |user| %>
+<% if user.active_date.to_date === Date.today %>
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td><%= user.status %></td>
     <td><%= user.notes %></td>
-    <td><%= user.active_date %></td>
     <td><%= user.created_at %></td>
     <td><%= user.updated_at %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+<% end %>
 <% end %>
 </table>
 
