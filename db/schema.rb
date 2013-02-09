@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(:version => 20120902134044) do
     t.string   "email"
     t.string   "status"
     t.string   "notes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "active_date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

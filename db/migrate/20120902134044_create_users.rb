@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :status
       t.string :notes
+      t.string :active_date
 
       t.timestamps
     end

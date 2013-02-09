@@ -1,7 +1,8 @@
 #!/usr/bin/ruby
 
 require 'rubygems'  
-require 'active_record'  
+require 'active_record'
+require 'chronic'
 ActiveRecord::Base.establish_connection(  
 :adapter => "sqlite3",
 :database => "db/waldo_dev",
@@ -18,6 +19,7 @@ from = String.new
 name = String.new
 emailaddr = String.new
 notes = String.new
+active_date = Date.new
 text_next = false
 
 STDIN.each do |line|
@@ -32,8 +34,14 @@ STDIN.each do |line|
   end
 end
 
+if subject.match(/(today|tomorrow|next \w+|this \w+)/i)
+  active_date = Chronic.parse($1)
+else
+  active_date = Date.today
+end
+
 name = from.partition("<")[0]
 emailaddr = from.partition("<")[2][0...-1]
 notes = messagetext.join(" ")
 
-Users.create(:name => name, :email => emailaddr, :status => subject, :notes => notes)
+Users.create(:name => name, :email => emailaddr, :status => subject, :notes => notes, :active_date => active_date)
