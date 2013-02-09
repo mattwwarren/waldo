@@ -76,9 +76,14 @@ notes = messagetext.join(" ")
 # Create a date we can use and save it to the db
 
 subjects = subject.scan(/(today|tomorrow|next \w+|this \w+|mon\w*|tue\w*|wed\w*|thur\w*|fri\w*)/i)
-subjects.each do |dates|
-  dates.each do |date|
-    active_date = Chronic.parse(date)
-    Users.create(:name => name, :email => emailaddr, :status => subject, :notes => notes, :active_date => active_date)
+if subjects.size > 0
+  subjects.each do |dates|
+    dates.each do |date|
+      active_date = Chronic.parse(date)
+      Users.create(:name => name, :email => emailaddr, :status => subject, :notes => notes, :active_date => active_date)
+    end
   end
+else
+  active_date = Date.today
+  Users.create(:name => name, :email => emailaddr, :status => subject, :notes => notes, :active_date => active_date)
 end
