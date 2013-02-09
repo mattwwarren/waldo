@@ -40,3 +40,4 @@ gem 'jquery-rails'
 
 gem 'tilt'
 gem 'therubyracer'
+gem 'chronic'
