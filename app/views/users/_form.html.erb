@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :active_date %><br />
-    <%= f.text_field :active_date %>
+    <%= f.text_field :active_date, value: @user.new_record? ? '' : l(@user.active_date), 'data-behaviour' => 'datepicker'  %>
   </div>
   <div class="actions">
     <%= f.submit %>
