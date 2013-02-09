@@ -12,7 +12,10 @@ ActiveRecord::Base.establish_connection(
 class Users < ActiveRecord::Base
 end
 
-to_delete = Users.find_all_by_active_date(Date.yesterday)
-to_delete.each do |user|
-  Users.find(user.id).destroy
+@users = Users.all
+@today = Date.today
+@users.each do |user|
+  if user.active_date.to_date < @today
+    Users.find(user.id).destroy
+  end
 end
