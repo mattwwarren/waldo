@@ -12,24 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: 'Name' %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: 'Email' %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.text_field :status, placeholder: 'Where are you?' %>
   </div>
   <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_field :notes %>
+    <%= f.text_area :notes, placeholder: 'Notes', rows: '8' %>
   </div>
   <div class="field">
-    <%= f.label :active_date %><br />
-    <%= f.text_field :active_date, value: @user.new_record? ? '' : l(@user.active_date), 'data-behaviour' => 'datepicker'  %>
+    <%= f.text_field :active_date, placeholder: Date.today, value: @user.new_record? ? '' : l(@user.active_date.to_date), 'data-behaviour' => 'datepicker'  %>
   </div>
   <div class="actions">
     <%= f.submit %>
