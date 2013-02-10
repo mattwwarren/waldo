@@ -1,4 +1,6 @@
-<h1>Listing users</h1>
+<h1>Where is everyone?</h1>
+
+<h2>Current users not in the office</h2>
 
 <table>
   <tr>
@@ -8,7 +10,6 @@
     <th>Notes</th>
     <th>Created</th>
     <th>Updated</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -22,7 +23,6 @@
     <td><%= user.notes %></td>
     <td><%= user.created_at %></td>
     <td><%= user.updated_at %></td>
-    <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -32,4 +32,4 @@
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Create or Update your status', new_user_path %>
