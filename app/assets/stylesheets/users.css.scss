@@ -83,13 +83,21 @@ a:active {
 h1 {
     font-size: 40px;
     color:#8f0000;
+}
+
+h1 span {
     background:#999;
+    padding:4px;
 }
 
 h2 {
     font-size: 24px;
     color:#8f0000;
-    background:#999;
+}
+
+h2 span { 
+    background:#999; 
+    padding:4px;
 }
 
 .field {
