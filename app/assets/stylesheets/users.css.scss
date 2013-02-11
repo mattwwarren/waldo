@@ -16,23 +16,23 @@ table{
 table th{
     padding:15px;
     color:#fff;
-    text-shadow:1px 1px 1px #568F23;
-    border:1px solid #93CE37;
-    border-bottom:3px solid #9ED929;
+    text-shadow:1px 1px 1px #5f9ea0;
+    border:1px solid #0af;
+    border-bottom:3px solid #08c;
     background-color:#08c;
     background:-webkit-gradient(
         linear,
         left bottom,
         left top,
-        color-stop(0.02, rgb(123,192,67)),
-        color-stop(0.51, rgb(139,198,66)),
-        color-stop(0.87, rgb(158,217,41))
+        color-stop(0.02, rgb(0,136,204)),
+        color-stop(0.51, rgb(0,152,220)),
+        color-stop(0.87, rgb(0,180,255))
         );
     background: -moz-linear-gradient(
         center bottom,
-        rgb(123,192,67) 2%,
-        rgb(139,198,66) 51%,
-        rgb(158,217,41) 87%
+        rgb(0,136,204) 2%,
+        rgb(0,152,220) 51%,
+        rgb(0,180,255) 87%
         );
     -webkit-border-top-left-radius:5px;
     -webkit-border-top-right-radius:5px;
@@ -47,23 +47,27 @@ table th:empty{
 }
 
 table td {
+  appearance: none;
+  opacity: .99;
+  width:120px;
+  background: #08f;
+  border: 1px solid #0a5378;
+  border-radius: 4px;
+  color: #eee;
+  cursor: pointer;
+  text-shadow:0px -1px 0px rgba(0,0,0,.5);
     padding:10px;
-    text-align:center;
-    background-color:#b5b6ff;
-    border: 2px solid #E7EFE0;
-    -moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    border-radius:2px;
-    color:#666;
-    text-shadow:1px 1px 1px #fff;
 }
 
 a:link {
-    color:#4D4D4D;
+    color:#8f0000;
+    background:#999;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 a:visited {
-    color:#4D4D4D;
+    color:#8f0000;
 }
 
 a:hover {
@@ -78,12 +82,14 @@ a:active {
 
 h1 {
     font-size: 40px;
-    color:#333333;
+    color:#8f0000;
+    background:#999;
 }
 
 h2 {
     font-size: 24px;
-    color:#808080;
+    color:#8f0000;
+    background:#999;
 }
 
 .field {
