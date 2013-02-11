@@ -4,6 +4,12 @@ GitHub URL: https://github.com/MattTheRat/waldo
 
 Never wonder where your coworkers are again!
 
+Current Version
+===============
+
+Beta 2 Release - 11 Feb 2013
+Preceding commit - 7bc14826b24aa3fc64a69065647a2d9fd0a0ab5c
+
 TODO
 ====
 
